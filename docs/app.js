@@ -1,8 +1,14 @@
-// אל תשחזר גלילה אוטומטית – תמיד להתחיל למעלה
+// אל תשחזר גלילה אוטומטית – ננהל את הגלילה לבד
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+
+// כשעמוד נטען (ולא נכנסים לעוגן כמו #music) – התחלה מהחלק העליון
+window.addEventListener('load', () => {
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+});
 
 (async () => {
     const icon = (u, l) =>
@@ -402,8 +408,4 @@ window.scrollTo(0, 0);
     }
   });
 
-  // להתחיל תמיד מהחלק העליון של העמוד כשנכנסים בלי עוגן (#)
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-  }
   })();
