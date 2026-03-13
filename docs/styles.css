@@ -393,15 +393,22 @@ body {
   overflow: hidden;
 }
 
-.grid.gallery {
+.grid.gallery,
+.gallery-track {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   overflow-x: auto;
-  padding: 4px 2px 8px;
+  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   direction: ltr;
   scroll-padding-inline: 0;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.grid.gallery {
+  padding: 4px 2px 8px;
 }
 
 .grid.gallery::-webkit-scrollbar {

@@ -10,6 +10,13 @@ const resetScrollTop = () => {
 
 resetScrollTop();
 document.addEventListener('DOMContentLoaded', resetScrollTop);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.gallery-track');
+  if (gallery) {
+    gallery.scrollLeft = 0;
+  }
+});
 window.addEventListener('load', resetScrollTop);
 setTimeout(resetScrollTop, 50);
 setTimeout(resetScrollTop, 150);
@@ -241,52 +248,28 @@ setTimeout(resetScrollTop, 300);
         )
         .join('');
 
-      const galleryPrev = document.getElementById('galleryPrev'); // visually RIGHT arrow
-      const galleryNext = document.getElementById('galleryNext'); // visually LEFT arrow
-      const galleryItems = galleryEl.querySelectorAll('.gallery-item');
-      let galleryIndex = 0;
+      const galleryPrev = document.getElementById('galleryPrev');
+      const galleryNext = document.getElementById('galleryNext');
+      const galleryTrack = document.querySelector('.gallery-track') || galleryEl;
 
-      function updateArrows() {
-        if (!galleryPrev || !galleryNext) return;
-        // אם אנחנו על הראשונה – אין עוד שמאלה => להסתיר את החץ השמאלי (LEFT arrow)
-        galleryNext.style.visibility = galleryIndex <= 0 ? 'hidden' : 'visible';
-        // אם אנחנו על האחרונה – אין עוד ימינה => להסתיר את החץ הימני (RIGHT arrow)
-        galleryPrev.style.visibility =
-          galleryIndex >= galleryItems.length - 1 ? 'hidden' : 'visible';
-      }
+      galleryEl.scrollLeft = 0;
 
-      function scrollToIndex(index) {
-        if (!galleryItems.length) return;
-        galleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
-        const item = galleryItems[galleryIndex];
-        if (item && galleryEl) {
-          const offset = item.offsetLeft;
-          galleryEl.scrollTo({ left: offset, behavior: 'auto' });
-        }
-        updateArrows();
+      if (galleryNext && galleryTrack) {
+        galleryNext.addEventListener('click', () => {
+          galleryTrack.scrollBy({
+            left: 320,
+            behavior: 'smooth'
+          });
+        });
       }
-
-      function nextSlide() {
-        // 3. nextSlide: index++
-        scrollToIndex(galleryIndex + 1);
+      if (galleryPrev && galleryTrack) {
+        galleryPrev.addEventListener('click', () => {
+          galleryTrack.scrollBy({
+            left: -320,
+            behavior: 'smooth'
+          });
+        });
       }
-
-      function prevSlide() {
-        // 4. prevSlide: index--
-        scrollToIndex(galleryIndex - 1);
-      }
-
-      if (galleryPrev) {
-        // RIGHT arrow (→) = NEXT slide
-        galleryPrev.addEventListener('click', nextSlide);
-      }
-      if (galleryNext) {
-        // LEFT arrow (←) = PREVIOUS slide
-        galleryNext.addEventListener('click', prevSlide);
-      }
-
-      // להתחיל על התמונה הראשונה ולהגדיר חצים
-      scrollToIndex(0);
     }
   
     const y = document.getElementById('year');
