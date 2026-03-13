@@ -395,4 +395,9 @@
       bodyEl.classList.remove('scrolled-bg');
     }
   });
+
+  // להתחיל תמיד מהחלק העליון של העמוד כשנכנסים בלי עוגן (#)
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
   })();
