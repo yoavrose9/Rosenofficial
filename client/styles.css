@@ -391,17 +391,17 @@ body {
   align-items: center;
   gap: 10px;
   overflow: hidden;
+  transform: none !important;
 }
 
 .grid.gallery,
 .gallery-track {
   display: flex;
   gap: 20px;
-  scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  scroll-padding-inline: 0;
   padding-left: 0;
   margin-left: 0;
+  transform: none !important;
 }
 
 .gallery-track {
@@ -419,13 +419,13 @@ body {
 }
 
 .grid.gallery .gallery-item {
-  /* ברירת מחדל – מובייל: ~2.5 תמונות בשורה */
   flex: 0 0 40%;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
-  scroll-snap-align: start;
+  transform: none !important;
+  transition: none !important;
 }
 
 @media (min-width: 700px) {
@@ -447,6 +447,8 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: none !important;
+  transition: none !important;
 }
 
 .gallery__arrow {
@@ -462,24 +464,24 @@ body {
   height: 42px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(15, 15, 15, 0.72);
-  color: white;
+  background: rgba(10, 10, 10, 0.72);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
   box-shadow: none;
   outline: none;
-  font-size: 14px;
-  line-height: 1;
-  transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-  appearance: none;
+  transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .gallery-prev:hover,
 .gallery-next:hover {
-  background: rgba(25, 25, 25, 0.82);
+  background: rgba(20, 20, 20, 0.82);
   border-color: rgba(255, 255, 255, 0.65);
 }
 
@@ -490,19 +492,16 @@ body {
 .gallery-prev:focus-visible,
 .gallery-next:focus-visible {
   transform: none !important;
-  scale: none !important;
   box-shadow: none !important;
   outline: none !important;
 }
 
 .gallery-prev svg,
-.gallery-next svg,
-.gallery-prev span,
-.gallery-next span {
+.gallery-next svg {
   width: 14px;
   height: 14px;
-  font-size: 14px;
-  line-height: 1;
+  flex-shrink: 0;
+  display: block;
 }
 
 .footer {
