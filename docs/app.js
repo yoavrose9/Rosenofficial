@@ -148,7 +148,7 @@ setTimeout(resetScrollTop, 300);
       'תשעבערב': 'תשעבערב.png',
       'אני לא חוזר': 'אני לא חוזר.png',
       'איזה סימן': 'איזה סימן.JPG',
-      'שאלות': 'שאלות .jpg',
+      'שאלות': 'שאלות .png',
       'הכל בשבילך': 'הכל בשבילך.png',
       'חלק מהלב': 'חלק מהלב.JPG',
       'סובבת אותי': 'חלק מהלב.JPG',
@@ -165,7 +165,7 @@ setTimeout(resetScrollTop, 300);
   
     const coverBy = async (t) => {
       const f = localCoverMap[t];
-      return f ? 'assets/covers/' + encodeURI(f) + '?v=2' : '';
+      return f ? 'assets/covers/' + encodeURI(f) + '?v=3' : '';
     };
   
     const songsEl = document.getElementById('songs');
