@@ -256,10 +256,12 @@ setTimeout(resetScrollTop, 300);
           prevBtn.style.display = track.scrollLeft <= 0 ? 'none' : 'block';
           nextBtn.style.display = track.scrollLeft >= maxScroll - 2 ? 'none' : 'block';
         }
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
           track.scrollBy({ left: 320, behavior: 'smooth' });
         });
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
           track.scrollBy({ left: -320, behavior: 'smooth' });
         });
         track.addEventListener('scroll', updateArrows);

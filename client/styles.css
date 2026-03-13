@@ -464,6 +464,16 @@ body {
   background: rgba(0, 0, 0, 0.8);
 }
 
+.gallery-prev,
+.gallery-next {
+  transform: none;
+}
+
+.gallery-prev:active,
+.gallery-next:active {
+  transform: none;
+}
+
 .footer {
   padding: 25px 0 45px;
   font-size: 13px;
