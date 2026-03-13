@@ -100,6 +100,7 @@ setTimeout(resetScrollTop, 300);
         'מילים ולחן: יותם ישראל, יואב רוזן<br/>הפקה, מיקס מאסטר: איתמר אפרים<br/>הפקה נוספת: ירדן יפרח<br/>גיטרות: תומר מלמד<br/>ייעוץ וניהול מוזיקלי: אור הראל'
     };
   
+    /* סדר לפי תאריך יציאה: חדש למעלה, ישן למטה (לפי קישורי Apple Music/פלטפורמות). נופל לזה שוב = תאריך חלק מהלב */
     const songs = [
       {
         title: 'תשעבערב',
@@ -112,16 +113,6 @@ setTimeout(resetScrollTop, 300);
         deezer: 'https://www.deezer.com/us/track/3712862852'
       },
       {
-        title: 'אני לא חוזר',
-        cover: 'אני לא חוזר',
-        youtube: 'LNuwoOi-dwU',
-        spotify: 'https://open.spotify.com/search/רוזן%20אני%20לא%20חוזר',
-        appleMusic:
-          'https://music.apple.com/il/album/אני-לא-חוזר-single/1780986376',
-        fanlink: 'https://fanlink.tv/AniLoHozer',
-        deezer: 'https://www.deezer.com/us/track/3106775361'
-      },
-      {
         title: 'איזה סימן',
         cover: 'איזה סימן',
         youtube: '_1bAH2ahM50',
@@ -130,26 +121,6 @@ setTimeout(resetScrollTop, 300);
           'https://music.apple.com/il/album/איזה-סימן/1844466950?i=1844466951',
         fanlink: 'https://fanlink.tv/EizeSimanRosen',
         deezer: 'https://www.deezer.com/us/track/3587183891'
-      },
-      {
-        title: 'שאלות',
-        cover: 'שאלות',
-        youtube: '_TlQ_YyuFkM',
-        spotify: 'https://open.spotify.com/search/רוזן%20שאלות',
-        appleMusic:
-          'https://music.apple.com/il/album/שאלות/1818493327?i=1818493328',
-        fanlink: 'https://fanlink.tv/SheelotRosen',
-        deezer: 'https://www.deezer.com/us/track/3397204491'
-      },
-      {
-        title: 'הכל בשבילך',
-        cover: 'הכל בשבילך',
-        youtube: 'D38oOmW3f8Q',
-        spotify: 'https://open.spotify.com/search/רוזן%20הכל%20בשבילך',
-        appleMusic:
-          'https://music.apple.com/il/album/הכל-בשבילך/1806821953?i=1806821954',
-        fanlink: 'https://fanlink.tv/ZeAkol',
-        deezer: 'https://www.deezer.com/us/track/3311572851'
       },
       {
         title: 'חלק מהלב',
@@ -178,6 +149,36 @@ setTimeout(resetScrollTop, 300);
           'https://music.apple.com/il/album/נופל-לזה-שוב-feat-רוזן-single/1827752963',
         fanlink: 'https://fanlink.tv/NofelLezeShuv',
         deezer: 'https://www.deezer.com/us/track/3467730521'
+      },
+      {
+        title: 'שאלות',
+        cover: 'שאלות',
+        youtube: '_TlQ_YyuFkM',
+        spotify: 'https://open.spotify.com/search/רוזן%20שאלות',
+        appleMusic:
+          'https://music.apple.com/il/album/שאלות/1818493327?i=1818493328',
+        fanlink: 'https://fanlink.tv/SheelotRosen',
+        deezer: 'https://www.deezer.com/us/track/3397204491'
+      },
+      {
+        title: 'הכל בשבילך',
+        cover: 'הכל בשבילך',
+        youtube: 'D38oOmW3f8Q',
+        spotify: 'https://open.spotify.com/search/רוזן%20הכל%20בשבילך',
+        appleMusic:
+          'https://music.apple.com/il/album/הכל-בשבילך/1806821953?i=1806821954',
+        fanlink: 'https://fanlink.tv/ZeAkol',
+        deezer: 'https://www.deezer.com/us/track/3311572851'
+      },
+      {
+        title: 'אני לא חוזר',
+        cover: 'אני לא חוזר',
+        youtube: 'LNuwoOi-dwU',
+        spotify: 'https://open.spotify.com/search/רוזן%20אני%20לא%20חוזר',
+        appleMusic:
+          'https://music.apple.com/il/album/אני-לא-חוזר-single/1780986376',
+        fanlink: 'https://fanlink.tv/AniLoHozer',
+        deezer: 'https://www.deezer.com/us/track/3106775361'
       }
     ];
   
