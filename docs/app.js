@@ -183,6 +183,7 @@ setTimeout(resetScrollTop, 300);
   
             return (
               '<article class="song">' +
+              '<div class="song__content">' +
               (cover
                 ? '<div class="song__cover"><img src="' +
                   cover +
@@ -194,6 +195,7 @@ setTimeout(resetScrollTop, 300);
               s.title +
               '</h3>' +
               (note ? '<p class="note">' + note + '</p>' : '') +
+              '</div>' +
               '<div class="song__links">' +
               '<a class="button" href="' +
               (s.spotify ||
