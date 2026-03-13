@@ -15,6 +15,44 @@ setTimeout(resetScrollTop, 50);
 setTimeout(resetScrollTop, 150);
 setTimeout(resetScrollTop, 300);
 
+(function externalLinkTracking() {
+  function getPlatform(url) {
+    if (!url) return 'other';
+    const u = url.toLowerCase();
+    if (u.includes('spotify.com')) return 'spotify';
+    if (u.includes('youtube.com') || u.includes('youtu.be')) return 'youtube';
+    if (u.includes('instagram.com')) return 'instagram';
+    if (u.includes('tiktok.com')) return 'tiktok';
+    if (u.includes('music.apple.com')) return 'apple';
+    if (u.includes('soundcloud.com')) return 'soundcloud';
+    if (u.includes('deezer.com')) return 'deezer';
+    return 'other';
+  }
+
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a || !a.href) return;
+    const href = a.getAttribute('href');
+    if (!href || !href.startsWith('http')) return;
+    try {
+      const linkHost = new URL(a.href).hostname;
+      const currentHost = window.location.hostname;
+      if (linkHost === currentHost) return;
+    } catch (_) {
+      return;
+    }
+    const linkText = (a.textContent || a.innerText || a.getAttribute('aria-label') || '').trim().slice(0, 200);
+    const platform = getPlatform(href);
+    if (typeof gtag === 'function') {
+      gtag('event', 'link_click', {
+        link_url: href,
+        link_text: linkText,
+        platform: platform
+      });
+    }
+  });
+})();
+
 (async () => {
     const icon = (u, l) =>
       '<img class="icon__img" src="' +
