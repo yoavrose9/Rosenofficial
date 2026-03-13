@@ -1,3 +1,22 @@
+// global scroll reset to always start at top
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+const forceScrollTop = () => {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+
+forceScrollTop();
+document.addEventListener('DOMContentLoaded', forceScrollTop);
+window.addEventListener('load', forceScrollTop);
+setTimeout(forceScrollTop, 0);
+setTimeout(forceScrollTop, 100);
+setTimeout(forceScrollTop, 300);
+setTimeout(forceScrollTop, 700);
+
 (async () => {
     const icon = (u, l) =>
       '<img class="icon__img" src="' +
