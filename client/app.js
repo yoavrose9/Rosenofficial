@@ -242,12 +242,9 @@
         if (!galleryItems.length) return;
         galleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
         const item = galleryItems[galleryIndex];
-        if (item && item.scrollIntoView) {
-          item.scrollIntoView({
-            behavior: 'smooth',
-            inline: 'start',
-            block: 'nearest'
-          });
+        if (item && galleryEl) {
+          const offset = item.offsetLeft;
+          galleryEl.scrollTo({ left: offset, behavior: 'auto' });
         }
         updateArrows();
       }
