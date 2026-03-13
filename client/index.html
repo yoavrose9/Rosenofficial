@@ -6,22 +6,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <title>רוזן – פרופיל אמן</title>
     <script>
-      // אל תשחזר מצב גלילה ישן – תמיד להתחיל למעלה
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
 
-      function resetScroll() {
+      function resetScrollToTop() {
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
       }
 
-      resetScroll();
-      document.addEventListener('DOMContentLoaded', resetScroll);
-      window.addEventListener('load', resetScroll);
-      setTimeout(resetScroll, 50);
-      setTimeout(resetScroll, 200);
+      resetScrollToTop();
+      document.addEventListener('DOMContentLoaded', resetScrollToTop);
+      window.addEventListener('load', resetScrollToTop);
+      setTimeout(resetScrollToTop, 50);
+      setTimeout(resetScrollToTop, 150);
+      setTimeout(resetScrollToTop, 300);
     </script>
     <link rel='stylesheet' href='styles.css?v=1' />
     <link rel='preconnect' href='https://fonts.googleapis.com' />
