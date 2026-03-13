@@ -1,15 +1,3 @@
-// אל תשחזר גלילה אוטומטית – ננהל את הגלילה לבד
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-
-// כשעמוד נטען (ולא נכנסים לעוגן כמו #music) – התחלה מהחלק העליון
-window.addEventListener('load', () => {
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-  }
-});
-
 (async () => {
     const icon = (u, l) =>
       '<img class="icon__img" src="' +
