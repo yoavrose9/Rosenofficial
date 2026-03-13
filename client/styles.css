@@ -323,8 +323,15 @@ body {
   gap: 16px;
 }
 
+/* Desktop: multiple cards per row */
 .songs {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 1000px) {
+  .songs {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
 }
 
 .song {
@@ -723,5 +730,9 @@ body.scrolled-bg .bg-overlay {
 
   .hero__actions {
     justify-content: flex-start;
+  }
+
+  .songs {
+    grid-template-columns: 1fr;
   }
 }
